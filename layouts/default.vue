@@ -2,8 +2,14 @@
   <div class="container">
     <CThemeProvider>
       <CColorModeProvider>
-        <CBox font-family="body" as="main">
+        <CBox
+          font-family="HelveticaNeueCyr"
+          bg="#1c1f22"
+          color="white"
+          as="main"
+        >
           <CReset />
+          <the-header />
           <Nuxt />
         </CBox>
       </CColorModeProvider>
@@ -15,7 +21,7 @@ import {
   CThemeProvider,
   CColorModeProvider,
   CReset,
-  CBox
+  CBox,
 } from '@chakra-ui/vue'
 
 export default {
@@ -24,7 +30,7 @@ export default {
     CThemeProvider,
     CColorModeProvider,
     CReset,
-    CBox
-  }
+    CBox,
+  },
 }
 </script>
