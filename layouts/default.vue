@@ -4,9 +4,10 @@
       <CColorModeProvider>
         <CBox
           font-family="HelveticaNeueCyr"
-          bg="#1c1f22"
+          w="100vw"
           color="white"
           as="main"
+          px="6"
         >
           <CReset />
           <the-header />

@@ -1,30 +1,22 @@
 <template>
   <div>
-    <CFlex
-      px="6"
+    <c-flex
       py="6"
       align-items="center"
       justify="space-between"
       font-weight="regular"
     >
-      <CHeading font-size="16pt" font-weight="regular">FALONI</CHeading>
-      <CFlex font-size="12pt" grid-gap="4" text-transform="uppercase">
-        <CText>cart</CText>
-        <CText>menu</CText>
-      </CFlex>
-    </CFlex>
+      <c-heading font-size="16pt" font-weight="regular">FALONI</c-heading>
+      <c-flex font-size="11pt" grid-gap="6" text-transform="uppercase">
+        <c-text>cart</c-text>
+        <c-text>menu</c-text>
+      </c-flex>
+    </c-flex>
   </div>
 </template>
 
 <script>
-import { CFlex, CHeading, CText } from '@chakra-ui/vue'
-export default {
-  components: {
-    CFlex,
-    CHeading,
-    CText,
-  },
-}
+export default {}
 </script>
 
 <style></style>
