@@ -9,6 +9,7 @@
           as="main"
           :px="['6', '16']"
         >
+          <c-reset />
           <the-header />
           <Nuxt />
         </c-box>
