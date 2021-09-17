@@ -1,37 +1,29 @@
 <template>
-  <div class="container">
+  <div>
     <CThemeProvider>
       <CColorModeProvider>
-        <CBox
+        <c-box
           font-family="HelveticaNeueCyr"
           w="100vw"
           color="white"
           as="main"
-          px="6"
+          :px="['6', '16']"
         >
-          <CReset />
           <the-header />
           <Nuxt />
-        </CBox>
+        </c-box>
       </CColorModeProvider>
     </CThemeProvider>
   </div>
 </template>
 <script>
-import {
-  CThemeProvider,
-  CColorModeProvider,
-  CReset,
-  CBox,
-} from '@chakra-ui/vue'
+import { CThemeProvider, CColorModeProvider } from '@chakra-ui/vue'
 
 export default {
   name: 'App',
   components: {
     CThemeProvider,
     CColorModeProvider,
-    CReset,
-    CBox,
   },
 }
 </script>

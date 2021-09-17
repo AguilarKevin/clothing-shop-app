@@ -6,7 +6,9 @@
       justify="space-between"
       font-weight="regular"
     >
-      <c-heading font-size="16pt" font-weight="regular">FALONI</c-heading>
+      <nuxt-link to="/">
+        <c-heading font-size="16pt" font-weight="regular">FALONI</c-heading>
+      </nuxt-link>
       <c-flex font-size="11pt" grid-gap="6" text-transform="uppercase">
         <c-text>cart</c-text>
         <c-text>menu</c-text>
