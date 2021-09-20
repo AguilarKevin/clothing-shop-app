@@ -1,5 +1,5 @@
 <template>
-  <div v-chakra class="sales-container" py="8" h="full">
+  <div v-chakra class="sales-container" :h="['380px', '98vh']">
     <c-heading
       as="h3"
       size="2xl"
@@ -10,7 +10,7 @@
     >
       sales
     </c-heading>
-    <c-flex gap="14px" overflow-x="auto" w="full" :h="'80vh'">
+    <c-flex gap="24px" overflow-x="auto" w="full">
       <index-sales-card
         v-for="item in lastetsDiscounts"
         :id="item.id"
@@ -38,9 +38,3 @@ export default {
   methods: mapActions({ getLatestDiscounts: 'getLatestDiscounts' }),
 }
 </script>
-
-<style scoped>
-.sales-container {
-  height: 100vh;
-}
-</style>

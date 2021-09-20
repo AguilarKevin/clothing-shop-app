@@ -101,8 +101,6 @@
     'banner-arrow banner-arrow';
   grid-template-columns: repeat(2, 1fr);
   column-gap: 14px;
-  margin-block: 20px;
-  padding-bottom: 32px;
 }
 
 .header-new {
