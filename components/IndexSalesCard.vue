@@ -1,6 +1,6 @@
 <template>
   <c-stack w="full">
-    <nuxt-link :to="`/products/${id}`">
+    <nuxt-link :to="`/product/${id}`">
       <c-stack>
         <c-box :w="['260px', '100%']" :h="['320px', '70vh']">
           <c-image
@@ -25,10 +25,10 @@
             >
             <c-flex gap="4px">
               <c-text color="#aaaaaa" text-decoration="line-through"
-                >${{ price }}</c-text
+                >${{ price.toFixed(2) }}</c-text
               >
-              -
-              <c-text>${{ discount }}</c-text>
+
+              <c-text> - ${{ discount }}</c-text>
             </c-flex>
           </c-stack>
 
