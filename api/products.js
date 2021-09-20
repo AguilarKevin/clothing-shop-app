@@ -1,6 +1,6 @@
 import ky from 'ky'
 
-const api = { url: 'http://localhost:8000/api' }
+const api = { url: 'https://kevs-clothing-shop.herokuapp.com/api' }
 
 export default {
   async getProduct(id) {
