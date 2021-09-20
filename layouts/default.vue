@@ -4,7 +4,7 @@
       <CColorModeProvider>
         <c-box
           font-family="HelveticaNeueCyr"
-          w="100vw"
+          w="100%"
           color="white"
           as="main"
           :px="['6', '16']"
