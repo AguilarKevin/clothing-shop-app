@@ -1,7 +1,7 @@
 <template>
-  <div v-chakra font>
-    <c-flex flex-dir="column" gap="14px">
-      <c-box v-if="product.media" h="80vw">
+  <c-flex :flex-dir="['column', 'row']" :gap="['14px', '52px']" h="100%">
+    <c-stack flex="1">
+      <c-box v-if="product.media" :h="['80vw', '480px']">
         <c-image
           h="full"
           w="full"
@@ -11,11 +11,18 @@
       </c-box>
 
       <c-flex gap="8px" overflow-x="auto" w="full">
-        <c-box v-for="item in product.media" :key="item.id" flex="1" h="60px">
+        <c-box
+          v-for="item in product.media"
+          :key="item.id"
+          flex="1"
+          :h="['60px', '80px']"
+        >
           <c-image h="full" w="full" object-fit="cover" :src="item.url" />
         </c-box>
       </c-flex>
-      <c-stack>
+    </c-stack>
+    <c-grid template-rows="1fr 54px" gap="18px" flex="1">
+      <c-flex flex-dir="column" gap="8px" h="['36vh', '100%']" overflow="auto">
         <c-text
           font-size="28px"
           line-height="1.2"
@@ -51,7 +58,7 @@
             :bg="color"
           />
         </c-flex>
-      </c-stack>
+      </c-flex>
 
       <c-button
         font-size="12px"
@@ -63,8 +70,8 @@
       >
         <c-text font-weight="regular">Add to bag</c-text>
       </c-button>
-    </c-flex>
-  </div>
+    </c-grid>
+  </c-flex>
 </template>
 
 <script>

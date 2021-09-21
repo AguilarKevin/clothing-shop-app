@@ -1,5 +1,5 @@
 <template>
-  <div v-chakra class="sales-container" :h="['380px', '98vh']">
+  <div v-chakra class="sales-container" py="20" :h="['380px', '98vh']">
     <c-heading
       as="h3"
       size="2xl"

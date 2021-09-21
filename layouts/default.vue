@@ -12,6 +12,7 @@
           <c-reset />
           <the-header />
           <Nuxt />
+          <the-footer />
         </c-box>
       </CColorModeProvider>
     </CThemeProvider>
