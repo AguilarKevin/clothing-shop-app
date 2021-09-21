@@ -23,17 +23,19 @@
       text-transform="uppercase"
       word-break="break-word"
     >
-      <c-button
-        font-size="12px"
-        py="8px"
-        px="14px"
-        mb="2"
-        text-transform="uppercase"
-        border-radius="full"
-        color="#181818"
-      >
-        view more
-      </c-button>
+      <nuxt-link to="/products">
+        <c-button
+          font-size="12px"
+          py="8px"
+          px="14px"
+          mb="2"
+          text-transform="uppercase"
+          border-radius="full"
+          color="#181818"
+        >
+          view more
+        </c-button>
+      </nuxt-link>
       sport
     </c-heading>
 
