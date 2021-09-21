@@ -1,14 +1,27 @@
 <template>
   <c-stack>
-    <c-flex flex-dir="column" align="center" gap="14px">
-      <c-heading as="h1" font-size="44pt">New Arrivals</c-heading>
-      <c-text
+    <c-flex
+      :py="['28px', '0']"
+      flex-dir="column"
+      align="center"
+      justify="center"
+      gap="14px"
+    >
+      <c-heading
+        as="h1"
+        :font-size="['24pt', '44pt']"
+        text-transform="uppercase"
+        :line-height="['24pt', '44pt']"
+        align="center"
+        >New Arrivals</c-heading
+      >
+      <c-text align="center"
         >Thoughtfully designed objects for the workspace, home, and
         travel.</c-text
       >
     </c-flex>
 
-    <c-flex justify="space-between" py="4">
+    <c-flex justify="space-between" py="4" gap="8px">
       <c-menu :close-on-select="false">
         <c-menu-button rounded="lg" right-icon="chevron-down" color="#303030">
           <c-text font-size="11pt" font-weight="thin">Sort</c-text>
@@ -147,7 +160,11 @@
         </c-menu>
       </c-flex>
     </c-flex>
-    <c-grid gap="24px" template-columns="repeat(3,1fr)">
+    <c-grid
+      gap="24px"
+      justify="center"
+      :template-columns="['100%', 'repeat(3,1fr)']"
+    >
       <index-sales-card
         v-for="item in products"
         :id="item.id"

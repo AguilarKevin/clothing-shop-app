@@ -1,52 +1,77 @@
 <template>
   <div>
-    <c-flex
-      py="20"
-      align-items="start"
-      justify="space-between"
-      font-weight="regular"
-    >
-      <nuxt-link to="/">
-        <c-heading font-size="16pt" font-weight="regular">FALONI</c-heading>
-      </nuxt-link>
-      <c-flex font-size="11pt" flex-dir="column" gap="18px">
-        <c-heading font-size="16px" as="h5">Products</c-heading>
-        <c-flex flex-dir="column" gap="18px" color="#999999">
-          <c-text>Bags</c-text>
-          <c-text>Tees</c-text>
-          <c-text>Objects</c-text>
-          <c-text>Home Goods</c-text>
-          <c-text>Accesories</c-text>
+    <c-flex :flex-dir="['column', 'row']" align="center">
+      <c-flex
+        py="20"
+        align-items="start"
+        :justify="['center', 'space-between']"
+        :gap="['8px', '32px']"
+        font-weight="regular"
+      >
+        <nuxt-link to="/">
+          <c-heading :font-size="['11pt', '16pt']" font-weight="regular"
+            >FALONI</c-heading
+          >
+        </nuxt-link>
+        <c-flex flex-dir="column" gap="18px">
+          <c-heading :font-size="['14px', '16px']" as="h5">Products</c-heading>
+          <c-flex
+            :font-size="['11px', '14px']"
+            flex-dir="column"
+            gap="18px"
+            color="#999999"
+          >
+            <c-text>Bags</c-text>
+            <c-text>Tees</c-text>
+            <c-text>Objects</c-text>
+            <c-text>Home Goods</c-text>
+            <c-text>Accesories</c-text>
+          </c-flex>
+        </c-flex>
+
+        <c-flex flex-dir="column" gap="18px">
+          <c-heading :font-size="['14px', '16px']" as="h5">Company</c-heading>
+          <c-flex
+            :font-size="['11px', '14px']"
+            flex-dir="column"
+            gap="18px"
+            color="#999999"
+          >
+            <c-text>Who we are</c-text>
+            <c-text>Sustainability</c-text>
+            <c-text>Press</c-text>
+            <c-text>Home Careers</c-text>
+            <c-text>Terms & Conditions</c-text>
+            <c-text>Privacy</c-text>
+          </c-flex>
+        </c-flex>
+
+        <c-flex flex-dir="column" gap="18px">
+          <c-heading :font-size="['14px', '16px']" as="h5"
+            >Customer Service</c-heading
+          >
+          <c-flex
+            flex-dir="column"
+            gap="18px"
+            color="#999999"
+            :font-size="['11px', '14px']"
+          >
+            <c-text>Contact</c-text>
+            <c-text>Shiping</c-text>
+            <c-text>Returns</c-text>
+            <c-text>Warranty</c-text>
+            <c-text>Secure Payment</c-text>
+            <c-text>FAQ</c-text>
+            <c-text>Find a store</c-text></c-flex
+          >
         </c-flex>
       </c-flex>
-
-      <c-flex font-size="11pt" flex-dir="column" gap="18px">
-        <c-heading font-size="16px" as="h5">Company</c-heading>
-        <c-flex flex-dir="column" gap="18px" color="#999999">
-          <c-text>Who we are</c-text>
-          <c-text>Sustainability</c-text>
-          <c-text>Press</c-text>
-          <c-text>Home Careers</c-text>
-          <c-text>Terms & Conditions</c-text>
-          <c-text>Privacy</c-text>
-        </c-flex>
-      </c-flex>
-
-      <c-flex font-size="11pt" flex-dir="column" gap="18px">
-        <c-heading font-size="16px" as="h5">Customer Service</c-heading>
-        <c-flex flex-dir="column" gap="18px" color="#999999">
-          <c-text>Contact</c-text>
-          <c-text>Shiping</c-text>
-          <c-text>Returns</c-text>
-          <c-text>Warranty</c-text>
-          <c-text>Secure Payment</c-text>
-          <c-text>FAQ</c-text>
-          <c-text>Find a store</c-text></c-flex
-        >
-      </c-flex>
-
       <c-stack>
-        <c-heading font-size="16px" as="h5"
+        <c-heading
+          font-weight="regular"
+          :align="['center', 'left']"
+          font-size="16px"
+          as="h5"
           >Sign un for or newsletter</c-heading
         >
         <c-flex gap="8px">
@@ -54,17 +79,18 @@
           <c-button
             font-size="12px"
             py="8px"
-            px="14px"
+            px="24px"
             mb="2"
             text-transform="uppercase"
             border-radius="full"
             color="#181818"
           >
-            <c-text>Sign up</c-text>
+            <c-text :font-size="['14px', '16px']">Sign up</c-text>
           </c-button>
         </c-flex>
       </c-stack>
     </c-flex>
+
     <c-flex
       font-weight="regular"
       w="full"
