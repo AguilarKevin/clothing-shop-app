@@ -75,28 +75,21 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import ky from 'ky'
 
 export default {
-  computed: {
-    hasDiscount() {
-      return !!this.product.discount
-    },
-    discount() {
-      return (
-        this.product.price -
-        this.product.price * this.product.discount
-      ).toFixed(2)
-    },
-    ...mapState({
-      product: (state) => state.currentProduct,
-    }),
+  data() {
+    return {
+      product: {},
+    }
   },
+  async fetch() {
+    const response = await ky(
+      `https://kevs-clothing-shop.herokuapp.com/api/products/${this.$route.params.id}`
+    ).json()
 
-  created() {
-    this.$store.dispatch('getProduct', this.$route.params.id)
+    this.product = response.data
   },
-  methods: mapActions({ getProduct: 'getProduct' }),
 }
 </script>
 

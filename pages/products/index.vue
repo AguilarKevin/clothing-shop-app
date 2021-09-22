@@ -21,7 +21,13 @@
       >
     </c-flex>
 
-    <c-flex justify="space-between" py="4" gap="8px">
+    <c-flex
+      :flex-dir="['column', 'row']"
+      justify="space-between"
+      py="4"
+      gap="8px"
+      w="100%"
+    >
       <c-menu :close-on-select="false">
         <c-menu-button rounded="lg" right-icon="chevron-down" color="#303030">
           <c-text font-size="11pt" font-weight="thin">Sort</c-text>
@@ -163,9 +169,9 @@
     <c-grid
       gap="24px"
       justify="center"
-      :template-columns="['100%', 'repeat(3,1fr)']"
+      :template-columns="['100%', 'repeat(2,1fr)', 'repeat(3,1fr)']"
     >
-      <index-sales-card
+      <product-card
         v-for="item in products"
         :id="item.id"
         :key="item.id"
@@ -189,7 +195,7 @@ export default {
   },
   async fetch() {
     const response = await ky(
-      `https://kevs-clothing-shop.herokuapp.com/api/clothes`
+      `https://kevs-clothing-shop.herokuapp.com/api/products`
     ).json()
 
     this.products = response.data
