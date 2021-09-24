@@ -17,7 +17,7 @@
     </c-heading>
     <c-flex gap="24px" overflow-x="auto" w="full">
       <index-sales-card
-        v-for="item in lastetsDiscounts"
+        v-for="item in lastestDiscounts"
         :id="item.id"
         :key="item.id"
         :title="item.title"
@@ -30,16 +30,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import ky from 'ky'
 
 export default {
-  computed: mapState({
-    lastetsDiscounts: (state) => state.discounts,
-  }),
-
-  created() {
-    this.$store.dispatch('getLatestDiscounts')
+  data() {
+    return {
+      lastestDiscounts: [],
+    }
   },
-  methods: mapActions({ getLatestDiscounts: 'getLatestDiscounts' }),
+  async fetch() {
+    const response = await ky(
+      `https://kevs-clothing-shop.herokuapp.com/api/discounts`
+    ).json()
+
+    this.lastestDiscounts = response.data
+  },
 }
 </script>

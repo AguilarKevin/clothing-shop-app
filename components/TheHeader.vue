@@ -10,9 +10,11 @@
         <c-heading font-size="16pt" font-weight="regular">FALONI</c-heading>
       </nuxt-link>
       <c-flex font-size="11pt" gap="8px" text-transform="uppercase">
-        <c-button px="2" variant-color="transparent">
-          <c-text font-weight="thin" text-transform="uppercase">cart</c-text>
-        </c-button>
+        <nuxt-link to="/shopcart">
+          <c-button px="2" variant-color="transparent">
+            <c-text font-weight="thin" text-transform="uppercase">cart</c-text>
+          </c-button>
+        </nuxt-link>
 
         <c-button px="2" variant-color="transparent" @click="show = !show">
           <c-text font-weight="thin" text-transform="uppercase">menu</c-text>

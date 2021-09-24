@@ -1,17 +1,14 @@
 import products from '~/api/products'
 
 const state = () => ({
-  currentProduct: {},
-  discounts: [],
+  shopcart: {},
 })
 
 const getters = {}
 
 const actions = {
-  getProduct({ commit }, id) {
-    products.getProduct(id).then((product) => {
-      commit('setCurrentProduct', product)
-    })
+  addtoShopcart({ commit }, product) {
+    commit('setDiscounts', product)
   },
 
   getLatestDiscounts({ commit }) {
@@ -22,12 +19,21 @@ const actions = {
 }
 
 const mutations = {
-  setCurrentProduct(state, product) {
-    state.currentProduct = product
+  addtoShopCart(state, product) {
+    if (state.shopcart[product.id]) {
+      state.shopcart[product.id].count = state.shopcart[product.id].count + 1
+    } else {
+      state.shopcart[product.id] = {
+        count: 1,
+        id: product.id,
+        item: product.title,
+        price: product.discount || product.price,
+      }
+    }
   },
 
-  setDiscounts(state, discounts) {
-    state.discounts = discounts
+  removeFromShopcart(state, productId) {
+    delete state.shopcart[productId]
   },
 }
 
