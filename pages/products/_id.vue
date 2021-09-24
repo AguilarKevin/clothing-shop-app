@@ -46,36 +46,62 @@
         </c-flex>
         <c-text>{{ product.description }}</c-text>
         <c-text>Colors:</c-text>
-        <c-flex gap="8px">
-          <c-box
+
+        <c-flex px="1" gap="14px">
+          <c-flex
             v-for="color in product.colors"
             :key="color"
             rounded="full"
-            border="2px"
+            border-width="0px"
             border-color="gray.800"
             w="44px"
             h="44px"
             :bg="color"
-          />
+            :value="color"
+            :class="[selectedColor !== color ? '' : 'colorSelected']"
+          >
+            <input
+              :id="color"
+              v-model="selectedColor"
+              v-chakra
+              type="radio"
+              :value="color"
+              d="none"
+            />
+            <label v-chakra :for="color" h="full" w="full"> </label>
+          </c-flex>
         </c-flex>
 
+        {{ selectedColor }}
+
         <c-text>Sizes:</c-text>
-        <c-flex>
-          <c-button
-            v-for="size in product.sizes"
-            :key="size.id"
+
+        <c-flex class="size-container">
+          <c-flex
+            v-for="item in product.sizes"
+            :key="item.id"
+            h="52px"
+            w="44px"
+            flex="1"
             align="center"
-            border="2px"
-            rounded="lg"
-            border-color="gray.800"
-            py="10px"
-            px="12px"
+            justify="center"
+            :class="[selectedSize !== item.size ? '' : 'sizeSelected']"
           >
-            <c-text color="gray.600" text-transform="uppercase">{{
-              size.size
-            }}</c-text>
-          </c-button>
+            <input
+              :id="item.id"
+              v-model="selectedSize"
+              v-chakra
+              type="radio"
+              :value="item.size"
+              d="none"
+            />
+            <c-text as="label" :for="item.id" font-weight="=thin">
+              {{ item.size }}
+            </c-text>
+          </c-flex>
         </c-flex>
+
+        {{ selectedSize }}
       </c-flex>
 
       <c-button
@@ -85,6 +111,7 @@
         text-transform="uppercase"
         border-radius="full"
         color="#181818"
+        @click="addToCart"
       >
         <c-text font-weight="regular">Add to bag</c-text>
       </c-button>
@@ -112,12 +139,18 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.commit('addtoShopCart', {
-        id: this.product.id,
-        title: this.product.title,
-        imgSrc: this.product.media[0],
-        price: this.product.discount || this.product.price,
-      })
+      if (this.selectedColor && this.selectedSize) {
+        this.$store.commit('addtoShopCart', {
+          id: this.product.id,
+          title: this.product.title,
+          imgSrc: this.product.media[0],
+          price: this.product.discount || this.product.price,
+          color: this.selectedColor,
+          size: this.selectedSize,
+        })
+      } else {
+        alert('seleccione un color y tamanio')
+      }
     },
   },
 }
@@ -127,5 +160,16 @@ export default {
 .striked {
   color: #999999;
   text-decoration: line-through;
+}
+
+.colorSelected {
+  border: 4px solid #fff;
+  padding: 4px;
+}
+
+.sizeSelected,
+.size-container {
+  border: 2px solid #fff;
+  border-radius: 14px;
 }
 </style>

@@ -66,29 +66,6 @@
           >
         </c-flex>
       </c-flex>
-      <c-stack>
-        <c-heading
-          font-weight="regular"
-          :align="['center', 'left']"
-          font-size="16px"
-          as="h5"
-          >Sign un for or newsletter</c-heading
-        >
-        <c-flex gap="8px">
-          <c-input border-radius="full" color="#181818" />
-          <c-button
-            font-size="12px"
-            py="8px"
-            px="24px"
-            mb="2"
-            text-transform="uppercase"
-            border-radius="full"
-            color="#181818"
-          >
-            <c-text :font-size="['14px', '16px']">Sign up</c-text>
-          </c-button>
-        </c-flex>
-      </c-stack>
     </c-flex>
 
     <c-flex

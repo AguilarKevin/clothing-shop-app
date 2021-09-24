@@ -25,9 +25,7 @@ const mutations = {
     } else {
       state.shopcart[product.id] = {
         count: 1,
-        id: product.id,
-        item: product.title,
-        price: product.discount || product.price,
+        ...product,
       }
     }
   },
