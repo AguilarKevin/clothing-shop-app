@@ -58,6 +58,24 @@
             :bg="color"
           />
         </c-flex>
+
+        <c-text>Sizes:</c-text>
+        <c-flex>
+          <c-button
+            v-for="size in product.sizes"
+            :key="size.id"
+            align="center"
+            border="2px"
+            rounded="lg"
+            border-color="gray.800"
+            py="10px"
+            px="12px"
+          >
+            <c-text color="gray.600" text-transform="uppercase">{{
+              size.size
+            }}</c-text>
+          </c-button>
+        </c-flex>
       </c-flex>
 
       <c-button
@@ -81,6 +99,8 @@ export default {
   data() {
     return {
       product: {},
+      selectedColor: '',
+      selectedSize: '',
     }
   },
   async fetch() {
@@ -89,6 +109,16 @@ export default {
     ).json()
 
     this.product = response.data
+  },
+  methods: {
+    addToCart() {
+      this.$store.commit('addtoShopCart', {
+        id: this.product.id,
+        title: this.product.title,
+        imgSrc: this.product.media[0],
+        price: this.product.discount || this.product.price,
+      })
+    },
   },
 }
 </script>

@@ -1,5 +1,10 @@
 <template>
-  <div>{{ shopcart }}</div>
+  <div>
+    <c-flex flex-dir="column">
+      <c-box v-for="entry in shopcart" :key="entry.id"> {{ entry.item }}</c-box>
+    </c-flex>
+    {{ shopcart }}
+  </div>
 </template>
 
 <script>
@@ -7,7 +12,7 @@ import { mapState } from 'vuex'
 
 export default {
   computed: mapState({
-    shopcart: (state) => state.shopcart,
+    shopcart: (state) => Object.values(state.shopcart),
   }),
 }
 </script>
