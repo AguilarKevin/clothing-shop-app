@@ -10,11 +10,9 @@
         py="24px"
         >Item List</c-heading
       >
-      <div>
+      <div v-for="item in shopcart" :key="item.id">
         <shopcart-item
-          v-for="item in shopcart"
           :id="item.id"
-          :key="item.id"
           :img="item.imgSrc"
           :count="item.count"
           :title="item.title"
@@ -23,10 +21,14 @@
         />
         <c-divider border-color="white" />
       </div>
-      <c-flex>
-        <c-text>Subtotal</c-text>
-        <c-divider border-color="white" orientation="vertical" />
-        <c-text>{{ shopcart.length }} items</c-text>
+
+      <c-flex justify="space-between">
+        <c-flex>
+          <c-text>Subtotal</c-text>
+          <c-divider border-color="white" orientation="vertical" />
+          <c-text>{{ shopcart.length }} items</c-text>
+        </c-flex>
+        <c-text>${{ subtotal }}</c-text>
       </c-flex>
     </c-flex>
     <c-flex v-else h="100%" flex-dir="column" justify="center" align="center">
@@ -42,6 +44,11 @@ import { mapState } from 'vuex'
 export default {
   computed: mapState({
     shopcart: (state) => Object.values(state.shopcart),
+    subtotal: (state) =>
+      Object.values(state.shopcart).reduce(
+        (previousValue, currentItem) => previousValue + currentItem.price,
+        0
+      ),
   }),
 }
 </script>

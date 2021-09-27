@@ -1,3 +1,6 @@
+import Vue from 'vue'
+import { Store } from 'vuex'
+
 const state = () => ({
   shopcart: {},
 })
@@ -8,8 +11,8 @@ const actions = {
   addToShopCart({ commit }, product) {
     commit('addToShopCart', product)
   },
-  removeFromShopCart({ commit }, id) {
-    commit('removeFromShopCart', id)
+  removeFromShopcart({ commit }, id) {
+    commit('removeFromShopcart', id)
   },
   incrementCount({ commit }, id) {
     commit('incrementCount', id)
@@ -38,14 +41,15 @@ const mutations = {
   },
 
   removeFromShopcart(state, productId) {
-    delete state.shopcart[productId]
+    Vue.set(state.shopcart, productId, null)
   },
 }
 
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations,
-}
+export default () =>
+  new Store({
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations,
+  })
