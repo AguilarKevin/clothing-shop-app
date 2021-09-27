@@ -19,18 +19,19 @@ export default {
   methods: {
     addToCart() {
       if (this.selectedColor && this.selectedSize) {
-        this.$store.commit('addtoShopCart', {
+        const product = {
           id: this.product.id,
           title: this.product.title,
           imgSrc: this.product.media[0],
           price: this.product.discount || this.product.price,
           color: this.selectedColor,
           size: this.selectedSize,
-        })
-        this.showToast('Item added to shopcart')
-      } else {
-        this.showToast('Please select the item color and size.')
+        }
+
+        this.$store.dispatch('addToShopCart', product)
+        return this.showToast('Item added to shopcart')
       }
+      this.showToast('Please select the item color and size.')
     },
     showToast(msg) {
       this.$toast({

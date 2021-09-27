@@ -4,10 +4,23 @@ const state = () => ({
 
 const getters = {}
 
-const actions = {}
+const actions = {
+  addToShopCart({ commit }, product) {
+    commit('addToShopCart', product)
+  },
+  removeFromShopCart({ commit }, id) {
+    commit('removeFromShopCart', id)
+  },
+  incrementCount({ commit }, id) {
+    commit('incrementCount', id)
+  },
+  decrementCount({ commit }, id) {
+    commit('decrementCount', id)
+  },
+}
 
 const mutations = {
-  addtoShopCart(state, product) {
+  addToShopCart(state, product) {
     if (state.shopcart[product.id]) {
       state.shopcart[product.id].count = state.shopcart[product.id].count + 1
       return
