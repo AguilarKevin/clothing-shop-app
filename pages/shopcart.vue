@@ -24,7 +24,7 @@
                 :align="['center', 'left']"
                 font-size="16px"
                 as="h5"
-                >{{ entry.item }}</c-heading
+                >{{ entry.title }}</c-heading
               >
             </c-stack>
             <c-icon-button size="xs" variant="outline" icon="small-close" />
@@ -65,9 +65,13 @@
             flex="1"
           >
             <c-flex>
-              <c-button h="44" variant="ghost">-</c-button>
+              <c-button h="44" variant="ghost" @click="decrementCount(entry.id)"
+                >-</c-button
+              >
               <c-text font-size="11px">{{ entry.count }}</c-text>
-              <c-button h="44" variant="ghost">+</c-button>
+              <c-button h="44" variant="ghost" @click="incrementCount(entry.id)"
+                >+</c-button
+              >
             </c-flex>
           </c-flex>
         </c-stack>
@@ -87,6 +91,14 @@ export default {
   computed: mapState({
     shopcart: (state) => Object.values(state.shopcart),
   }),
+  methods: {
+    incrementCount(id) {
+      this.$store.commit('incrementCount', id)
+    },
+    decrementCount(id) {
+      this.$store.commit('decrementCount', id)
+    },
+  },
 }
 </script>
 

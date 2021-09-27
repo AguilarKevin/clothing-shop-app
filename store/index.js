@@ -1,33 +1,27 @@
-import products from '~/api/products'
-
 const state = () => ({
   shopcart: {},
 })
 
 const getters = {}
 
-const actions = {
-  addtoShopcart({ commit }, product) {
-    commit('setDiscounts', product)
-  },
-
-  getLatestDiscounts({ commit }) {
-    products.getLatestDiscounts().then((discounts) => {
-      commit('setDiscounts', discounts)
-    })
-  },
-}
+const actions = {}
 
 const mutations = {
   addtoShopCart(state, product) {
     if (state.shopcart[product.id]) {
       state.shopcart[product.id].count = state.shopcart[product.id].count + 1
-    } else {
-      state.shopcart[product.id] = {
-        count: 1,
-        ...product,
-      }
+      return
     }
+    state.shopcart[product.id] = {
+      count: 1,
+      ...product,
+    }
+  },
+  incrementCount(state, id) {
+    state.shopcart[id].count = state.shopcart[id].count + 1
+  },
+  decrementCount(state, id) {
+    state.shopcart[id].count = state.shopcart[id].count - 1
   },
 
   removeFromShopcart(state, productId) {
