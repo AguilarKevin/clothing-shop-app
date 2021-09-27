@@ -24,7 +24,7 @@
               >{{ title }}</c-heading
             >
             <c-flex gap="4px">
-              <c-text color="#aaaaaa" text-decoration="line-through"
+              <c-text :class="{ striked: discount }"
                 >${{ price.toFixed(2) }}</c-text
               >
 
@@ -50,5 +50,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

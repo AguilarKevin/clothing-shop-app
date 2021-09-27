@@ -39,10 +39,10 @@
           ></c-icon>
         </c-flex>
         <c-flex>
-          <c-text :class="{ striked: hasDiscount }">
+          <c-text :class="{ striked: product.discount }">
             ${{ product.price }}
           </c-text>
-          <c-text v-if="hasDiscount"> - ${{ discount }}</c-text>
+          <c-text v-if="product.discount"> - ${{ product.discount }}</c-text>
         </c-flex>
         <c-text>{{ product.description }}</c-text>
         <c-text>Colors:</c-text>
@@ -72,8 +72,6 @@
           </c-flex>
         </c-flex>
 
-        {{ selectedColor }}
-
         <c-text>Sizes:</c-text>
 
         <c-flex class="size-container">
@@ -85,6 +83,7 @@
             flex="1"
             align="center"
             justify="center"
+            pos="relative"
             :class="[selectedSize !== item.size ? '' : 'sizeSelected']"
           >
             <input
@@ -100,8 +99,6 @@
             </c-text>
           </c-flex>
         </c-flex>
-
-        {{ selectedSize }}
       </c-flex>
 
       <c-button
@@ -157,19 +154,23 @@ export default {
 </script>
 
 <style>
-.striked {
-  color: #999999;
-  text-decoration: line-through;
-}
-
 .colorSelected {
-  border: 4px solid #fff;
+  border: 2px solid #fff;
   padding: 4px;
 }
 
-.sizeSelected,
-.size-container {
-  border: 2px solid #fff;
+.switch {
+  background: white;
+  color: #1c1c1c;
   border-radius: 14px;
+  /* transition: background 0.5s ease-out; */
+  position: absolute;
+}
+
+.size-container {
+  background: #191c1f;
+  color: white;
+  border-radius: 14px;
+  position: relative;
 }
 </style>

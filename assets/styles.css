@@ -2,3 +2,8 @@ html,
 body {
   background: #1c1f22;
 }
+
+.striked {
+  color: #999999;
+  text-decoration: line-through;
+}
