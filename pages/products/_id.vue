@@ -1,3 +1,48 @@
+<script>
+import ky from 'ky'
+
+export default {
+  data() {
+    return {
+      product: {},
+      selectedColor: '',
+      selectedSize: '',
+    }
+  },
+  async fetch() {
+    const response = await ky(
+      `https://kevs-clothing-shop.herokuapp.com/api/products/${this.$route.params.id}`
+    ).json()
+
+    this.product = response.data
+  },
+  methods: {
+    addToCart() {
+      if (this.selectedColor && this.selectedSize) {
+        this.$store.commit('addtoShopCart', {
+          id: this.product.id,
+          title: this.product.title,
+          imgSrc: this.product.media[0],
+          price: this.product.discount || this.product.price,
+          color: this.selectedColor,
+          size: this.selectedSize,
+        })
+        this.showToast('Item added to shopcart')
+      } else {
+        this.showToast('Please select the item color and size.')
+      }
+    },
+    showToast(msg) {
+      this.$toast({
+        title: msg,
+        status: 'info',
+        duration: 5000,
+      })
+    },
+  },
+}
+</script>
+
 <template>
   <c-flex :flex-dir="['column', 'row']" :gap="['14px', '52px']" h="100%">
     <c-stack flex="1">
@@ -74,17 +119,17 @@
 
         <c-text>Sizes:</c-text>
 
-        <c-flex class="size-container">
+        <c-flex class="size-container" flex-wrap="wrap" gap="8px">
           <c-flex
             v-for="item in product.sizes"
             :key="item.id"
             h="52px"
-            w="44px"
-            flex="1"
+            px="14px"
+            min-width="44px"
+            class="sizeItem"
+            :class="{ sizeSelected: selectedSize == item.size }"
             align="center"
             justify="center"
-            pos="relative"
-            :class="[selectedSize !== item.size ? '' : 'sizeSelected']"
           >
             <input
               :id="item.id"
@@ -101,57 +146,23 @@
         </c-flex>
       </c-flex>
 
-      <c-button
-        font-size="12px"
-        py="8px"
-        px="14px"
-        text-transform="uppercase"
-        border-radius="full"
-        color="#181818"
-        @click="addToCart"
+      <c-flex gap="8px">
+        <c-button
+          font-size="12px"
+          py="14px"
+          px="14px"
+          flex="1"
+          text-transform="uppercase"
+          border-radius="full"
+          color="#181818"
+          @click="addToCart"
+        >
+          <c-text font-weight="regular">Add to bag</c-text>
+        </c-button></c-flex
       >
-        <c-text font-weight="regular">Add to bag</c-text>
-      </c-button>
     </c-grid>
   </c-flex>
 </template>
-
-<script>
-import ky from 'ky'
-
-export default {
-  data() {
-    return {
-      product: {},
-      selectedColor: '',
-      selectedSize: '',
-    }
-  },
-  async fetch() {
-    const response = await ky(
-      `https://kevs-clothing-shop.herokuapp.com/api/products/${this.$route.params.id}`
-    ).json()
-
-    this.product = response.data
-  },
-  methods: {
-    addToCart() {
-      if (this.selectedColor && this.selectedSize) {
-        this.$store.commit('addtoShopCart', {
-          id: this.product.id,
-          title: this.product.title,
-          imgSrc: this.product.media[0],
-          price: this.product.discount || this.product.price,
-          color: this.selectedColor,
-          size: this.selectedSize,
-        })
-      } else {
-        alert('seleccione un color y tamanio')
-      }
-    },
-  },
-}
-</script>
 
 <style>
 .colorSelected {
@@ -159,18 +170,16 @@ export default {
   padding: 4px;
 }
 
-.switch {
+.sizeItem {
+  border: 2px solid #fff;
+  border-radius: 14px;
+  width: fit-content;
+}
+
+.sizeSelected {
   background: white;
   color: #1c1c1c;
   border-radius: 14px;
-  /* transition: background 0.5s ease-out; */
-  position: absolute;
-}
-
-.size-container {
-  background: #191c1f;
-  color: white;
-  border-radius: 14px;
-  position: relative;
+  border-color: transparent;
 }
 </style>
