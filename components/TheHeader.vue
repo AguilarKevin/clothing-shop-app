@@ -1,7 +1,7 @@
 <template>
   <c-stack>
     <c-flex
-      pt="6"
+      pt="4"
       align-items="center"
       justify="space-between"
       font-weight="regular"
@@ -22,8 +22,8 @@
       </c-flex>
     </c-flex>
 
-    <c-collapse :is-open="show" bg="#202020">
-      <c-flex flex-dir="column" align="end">
+    <c-collapse :is-open="show">
+      <c-flex flex-dir="column" align="center" color="#202020">
         <nuxt-link to="/collections">
           <c-button px="2" variant-color="transparent" @click="show = !show">
             <c-text font-weight="thin" text-transform="uppercase"

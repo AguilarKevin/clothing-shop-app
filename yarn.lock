@@ -8835,6 +8835,11 @@ sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/sisteransi/-/sisteransi-1.0.5.tgz"
 
+skeleton-loader-vue@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/skeleton-loader-vue/-/skeleton-loader-vue-1.0.10.tgz#bbbc3d10330e7fc1e44ef0ed1324d7e16e3a4ec4"
+  integrity sha512-71WVaMrXxpzZp1NY1U+DEXi1EbMJ7PdUDW2aiCXKrP0a0IZBMfLX2Nxq9hQXK7M8YHweTMlCRTDYScH/B3/7nQ==
+
 slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"

@@ -11,9 +11,11 @@
           :px="['6', '16']"
         >
           <c-reset />
-          <the-header />
-          <Nuxt />
-          <the-footer />
+          <c-flex h="100vh" flex-dir="column" justify-content="space-between">
+            <the-header />
+            <Nuxt />
+            <the-footer />
+          </c-flex>
         </c-box>
       </CColorModeProvider>
     </CThemeProvider>

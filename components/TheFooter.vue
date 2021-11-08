@@ -1,6 +1,6 @@
 <template>
   <div>
-    <c-flex :flex-dir="['column', 'row']" align="center">
+    <c-flex :d="['none', 'flex']" :flex-dir="['column', 'row']" align="center">
       <c-flex
         py="20"
         align-items="start"
