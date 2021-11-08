@@ -19,6 +19,7 @@ export default {
     return response.data
   },
 
+  // to implement soon
   getDiscountedProducts() {},
   getCollection() {},
   getAllCollections() {},

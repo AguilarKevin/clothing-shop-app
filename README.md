@@ -17,7 +17,9 @@ This project is a clothing shop made in **Nuxt (Vue 2)** and Chakra UI as compon
 
 ## About the project
 
-I developed this project as a practice to apply my knowledge acquired in vue / nuxt
+I developed this project as a practice to apply my knowledge acquired in vue / nuxt, I used this [design](https://dribbble.com/shots/15163938-Fashion-E-commerce-Landing-Page) that i found on dribbble.
+
+Note: desktop design _**in progress**_
 
 <img src="./images/index.png" width="20%"/> <img src="./images/products.png" width="20%"/>
 <img src="./images/product-details.png" width="20%"/> <img src="./images/shopcart.png" width="20%"/>
