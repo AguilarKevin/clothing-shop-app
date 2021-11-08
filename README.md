@@ -7,7 +7,7 @@
 
 This project is a clothing shop made in **Nuxt (Vue 2)** and Chakra UI as component library.
 
-## interesting links
+### Interesting links
 
 - [Deployment](https://clothing-shop-app.netlify.app)
 
@@ -15,14 +15,16 @@ This project is a clothing shop made in **Nuxt (Vue 2)** and Chakra UI as compon
 
 ---
 
-## About the project
+## About this project
 
-I developed this project as a practice to apply my knowledge acquired in vue / nuxt, I used this [design](https://dribbble.com/shots/15163938-Fashion-E-commerce-Landing-Page) that i found on dribbble.
+I started this project to practice and apply my knowledge acquired in Vue/Nuxt, I used this [design](https://dribbble.com/shots/15163938-Fashion-E-commerce-Landing-Page) that i found on dribbble.
 
-Note: desktop design _**in progress**_
+Note: Desktop design _**in progress**_
 
 <img src="./images/index.png" width="20%"/> <img src="./images/products.png" width="20%"/>
 <img src="./images/product-details.png" width="20%"/> <img src="./images/shopcart.png" width="20%"/>
+
+---
 
 ### License
 
