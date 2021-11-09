@@ -25,7 +25,7 @@
       :flex-dir="['column', 'row']"
       justify="space-between"
       py="4"
-      gap="8px"
+      gap="14px"
       w="100%"
     >
       <c-menu :close-on-select="false">
@@ -48,8 +48,8 @@
           </c-menu-option-group>
         </c-menu-list>
       </c-menu>
-      <c-flex gap="14px">
-        <c-menu :close-on-select="false">
+      <c-flex justify-content="space-between" gap="['4px', '14px']">
+        <c-menu :close-on-select="false" flex="1">
           <c-menu-button rounded="lg" right-icon="chevron-down" color="#303030">
             <c-text font-size="11pt" font-weight="thin">Category</c-text>
           </c-menu-button>
@@ -87,7 +87,7 @@
           </c-menu-list>
         </c-menu>
 
-        <c-menu :close-on-select="false">
+        <c-menu :close-on-select="false" flex="1">
           <c-menu-button rounded="lg" right-icon="chevron-down" color="#303030">
             <c-text font-size="11pt" font-weight="thin">Brand</c-text>
           </c-menu-button>
@@ -127,7 +127,7 @@
           </c-menu-list>
         </c-menu>
 
-        <c-menu :close-on-select="false">
+        <c-menu :close-on-select="false" flex="1">
           <c-menu-button rounded="lg" right-icon="chevron-down" color="#303030">
             <c-text font-size="11pt" font-weight="thin">Size</c-text>
           </c-menu-button>
